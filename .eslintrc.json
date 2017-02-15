@@ -1,0 +1,12 @@
+{
+    "extends": "./node_modules/eslint-config-google/index.js",
+    "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true,
+    "node": true
+  },
+  "plugins": [
+    "jasmine"
+  ]
+}
