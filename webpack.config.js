@@ -3,11 +3,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const HappyPack = require('happypack');
 
-var config = {
+const happyThreadCount = 4;
+
+const config = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        app: './app/main.js',
+        app: './app/bootstrap.js',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -16,16 +19,16 @@ var config = {
     resolve: {
         modules: [
             'node_modules',
-        ]
+        ],
     },
-    devtool: 'source-map',
+    devtool: 'cheap-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
         port: 8700,
         inline: true,
         hot: true,
         watchContentBase: true,
-        open: true
+        open: true,
     },
     plugins: [
         new DashboardPlugin(),
@@ -43,21 +46,31 @@ var config = {
             name: 'vendor',
             minChunks: function(mod, count) {
                 // Don't include things under '/src' folder
-				return mod.resource && mod.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
+				return mod.resource &&
+                        mod.resource
+                        .indexOf(path.resolve(__dirname, 'src')) === -1;
             },
         }),
         new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery',
-            'window.jQuery': 'jquery'
+			'$': 'jquery',
+			'jQuery': 'jquery',
+            'window.jQuery': 'jquery',
 		}),
-        new webpack.ProvidePlugin({
-			ko: 'knockout',
-		}),
-        new webpack.ProvidePlugin({
-			Hammer: 'hammerjs',
-		}),
-        
+        new HappyPack({
+            id: 'eslint',
+            loaders: [
+                {loader: 'eslint-loader'},
+                ],
+            threads: happyThreadCount,
+        }),
+        new HappyPack({
+            id: 'babel',
+            loaders: [
+                {loader: 'babel-loader', options: {presets: ['es2015']},
+            },
+                ],
+            threads: happyThreadCount,
+        }),
     ],
     module: {
         rules: [
@@ -66,19 +79,23 @@ var config = {
                 loader: 'html-loader',
             },
             {
-                test: /\.js/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: { presets: ['es2015'] },
-                    },
-                ],
+                test: /\.js$/,
+                exclude: /node_modules/,
+                enforce: 'pre',
+                use: [{loader: 'happypack/loader?id=eslint'}],
             },
             {
-                test: /\.css$/,
+                test: /\.js/,
+                exclude: /node_modules/,
+                use: [{loader: 'happypack/loader?id=babel'}],
+            },
+            {
+                test: /\.scss$/,
                 loader: ExtractTextPlugin.extract( {
-                    fallbackLoader: 'style-loader',
-                    loader: [ { loader: 'css-loader', options: { modules: true} },  ],
+                    fallback: 'style-loader',
+                    loader:
+                    [{loader: 'css-loader'},
+                    {loader: 'sass-loader', options: {modules: true}}],
                 }),
             },
             {
@@ -88,10 +105,10 @@ var config = {
 						loader: 'url-loader',
 						query: {
 							limit: 2000,
-							name: 'assets/[name].[ext]'
-						}
-					}
-				]
+							name: '[name].[ext]',
+						},
+					},
+				],
 			},
 			{
 				test: /\.(ico|woff|eot|woff2|ttf)$/,
@@ -100,12 +117,12 @@ var config = {
 						loader: 'url-loader',
 						query: {
 							limit: 1,
-							name: 'assets/[name].[ext]'
-						}
-					}
-				]
-			}
-        ]
+							name: '[name].[ext]',
+						},
+					},
+				],
+			},
+        ],
     },
 };
 

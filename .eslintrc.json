@@ -8,5 +8,14 @@
   },
   "plugins": [
     "jasmine"
-  ]
+  ],
+  "globals": {
+    "angular": false,
+    "inject": true,
+    "jQuery": true,
+    "$": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
 }
