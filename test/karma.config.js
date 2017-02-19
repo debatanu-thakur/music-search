@@ -49,17 +49,27 @@ module.exports = function(config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['nyan', 'coverage'],
+        reporters: ['nyan', 'coverage-istanbul'],
 
-        coverageReporter: {
-            reporters: [{
-                    type: 'html',
+        coverageIstanbulReporter: {
+            reports: ['html', 'text'],
+            dir: './test/coverage',
+            fixWebpackSourcePaths: true,
+            check: {
+
+                global: {
+                statements: 90,
+                branches: 90,
+                functions: 90,
+                lines: 90,
                 },
-                {
-                    type: 'text-summary',
-                },
-            ],
-            dir: 'coverage',
+            },
+              watermarks: {
+                statements: [80, 100],
+                functions: [80, 100],
+                branches: [80, 100],
+                lines: [80, 100],
+            },
         },
         // web server port
         port: 9876,
@@ -93,7 +103,7 @@ module.exports = function(config) {
         plugins: [
             'karma-webpack',
             'karma-sourcemap-loader',
-            'karma-coverage',
+            'karma-coverage-istanbul-reporter',
             'karma-nyan-reporter',
             'karma-jasmine',
             'karma-chrome-launcher',
