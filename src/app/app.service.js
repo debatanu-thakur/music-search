@@ -1,10 +1,16 @@
+/**
+ * @name app.service
+ *
+ * @description
+ * This is the service for the app
+ */
 class AppService {
+	/**
+	 * Initializes the app service
+	 */
 	constructor() {
-		'ngInject';
 	}
 
-	doSomething() {
-	}
 }
 
 export default AppService;

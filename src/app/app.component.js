@@ -5,7 +5,7 @@ const appComponent = {
 	template,
 	controller,
 	bindings: {
-	}
+	},
 };
 
 export default appComponent;

@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -91,7 +93,7 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract( {
+                use: ExtractTextPlugin.extract( {
                     fallback: 'style-loader',
                     loader:
                     [{loader: 'css-loader'},
@@ -100,7 +102,7 @@ const config = {
             },
             {
 				test: /\.(jpg|png|gif|svg)$/,
-				loader: [
+				use: [
 					{
 						loader: 'url-loader',
 						query: {
@@ -112,7 +114,7 @@ const config = {
 			},
 			{
 				test: /\.(ico|woff|eot|woff2|ttf)$/,
-				loader: [
+				use: [
 					{
 						loader: 'url-loader',
 						query: {

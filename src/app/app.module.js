@@ -7,6 +7,9 @@ import component from './app.component';
 
 import AppHeader from './features/appHeader/appHeader.module';
 
+/**
+ * App module
+ */
 const appModule = angular.module('app', [
 	AppCore.name,
 	AppHeader.name,
