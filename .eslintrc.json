@@ -1,0 +1,21 @@
+{
+    "extends": "./node_modules/eslint-config-google/index.js",
+    "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true,
+    "node": true
+  },
+  "plugins": [
+    "jasmine"
+  ],
+  "globals": {
+    "angular": false,
+    "inject": true,
+    "jQuery": true,
+    "$": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}
