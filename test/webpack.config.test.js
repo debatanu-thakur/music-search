@@ -33,6 +33,7 @@ const config = {
                 enforce: 'pre',
                 test: [/\.js$/],
                 exclude: [/node_modules/, /\.spec.js$/],
+                include: path.resolve('src/app'),
                 use: [{
                     loader: 'istanbul-instrumenter-loader',
                     options: {

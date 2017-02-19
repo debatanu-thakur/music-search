@@ -5,8 +5,8 @@
  * Loads the application on to DOM
  */
 import angular from 'angular';
-import './app.module';
-import './app.scss';
+import './app/app.module';
+import './app/app.scss';
 
 const App = {};
 
