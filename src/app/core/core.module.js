@@ -2,11 +2,12 @@ import angular from 'angular';
 import 'angular-material';
 import 'angular-animate';
 import 'angular-messages';
+import 'angular-translate';
 
 import config from './core.config';
+import backendService from './backendService/backendService.module';
 /**
- * @ngdoc overview
- * @name _core
+ * @name app.core
  *
  * @description
  * The core application module,
@@ -16,6 +17,9 @@ const coreModule = angular.module('app.core', [
 	// Angular modules
 	'ngMaterial',
 	'ngMessages',
+	'pascalprecht.translate',
+
+	backendService.name,
 ])
     .config(config);
 

@@ -26,7 +26,7 @@ class AppHeaderController {
 		this.demo = {
         isOpen: false,
         count: 0,
-        selectedDirection: 'left'
+        selectedDirection: 'left',
       };
 	}
 

@@ -22,12 +22,22 @@ if (window) {
  * which is bootstraped to the HTML DOM
  */
 function startApp() {
-	angular
-		.module('app.core');
+	const language = 'en';
+
+	loadTranslation(language)
+		.then(loadApp.bind(null, language));
+}
+
+function loadApp(language, translation) {
+		angular
+		.module('app.core')
+		.constant('LANGUAGE', language)
+		.constant('TRANSLATION', translation);
 
     /**
      * NOTE: (petecorreia)
-     * Use body instead of document to avoid issues with angular material and e2e test runners
+     * Use body instead of document to avoid issues
+	 * with angular material and e2e test runners
      * See:
      * - https://github.com/angular/material/issues/5422
      * - https://github.com/karma-runner/karma/issues/422
@@ -37,6 +47,20 @@ function startApp() {
 
 	// Fire up the app
 	angular.bootstrap(body, ['app']);
+}
+
+function loadTranslation(language) {
+	return $.ajax({
+		url: `assets/locales/${language}.json`,
+		dataType: 'json',
+	})
+	.then(function(data) {
+		console.log(data);
+		return data;
+	}, function(err) {
+		// TODO: Handle this
+		console.error('There was a problem with loading translations.');
+	});
 }
 
 angular

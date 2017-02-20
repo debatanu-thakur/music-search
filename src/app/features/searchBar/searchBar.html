@@ -1,0 +1,36 @@
+<div class="search-bar">
+	
+	<span layout="row" layout-align="center center" class="search-bar__row">
+	<md-button
+		ng-class="{
+			'-open': $ctrl.isOpen
+		}"
+		ng-click="$ctrl.searchClick()"
+		class="search-toggle__button md-icon-button">
+		<md-icon class="search-toggle__icon">search</md-icon>
+	</md-button>
+	<md-input-container
+		ng-show="$ctrl.isOpen"
+		class="search-toggle__input-container md-block"
+		md-no-float>
+		<input
+			ng-model="$ctrl.query"
+			placeholder="Search"
+			type="text"
+			class="search-toggle__input">
+	</md-input-container>
+	
+	<md-button ng-if="$ctrl.isOpen"
+		ng-class="{
+			'-open': $ctrl.isOpen
+		}"
+		ng-click="$ctrl.toggle()"
+		md-no-ink
+		class="search-toggle__button md-icon-button">
+		<md-icon class="search-toggle__icon" >close</md-icon>
+	</md-button>
+	
+	
+</span>
+
+</div>

@@ -1,0 +1,14 @@
+// Easings
+$easing--out-expo  : cubic-bezier(0.19, 1, 0.22, 1);
+$easing--out-quint : cubic-bezier(0.215, 0.61, 0.355, 1);
+
+// Timings
+$time--short         : 0.2s;
+$time--default         : 0.333s;
+$time--long            : 0.666s;
+$time--longer          : 0.999s;
+$time--hoverTransition : $time--default;
+
+// Transitions
+$transition--default  : $time--default $easing--out-quint;
+$transition--out-expo : $time--long $easing--out-expo;
