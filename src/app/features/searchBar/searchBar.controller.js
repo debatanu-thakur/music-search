@@ -15,8 +15,6 @@ class SearchBarController {
 		this.SearchBarService = SearchBarService;
 	}
 
-	
-
 	/**
 	 * Toggle the search bar open and closing
 	 */
@@ -29,6 +27,9 @@ class SearchBarController {
 	 */
 	searchClick() {
 		if (this.isOpen) {
+			if ($.trim(this.query)==='') {
+				return;
+			}
 			this.searchInitiate();
 		} else {
 			this.toggle();

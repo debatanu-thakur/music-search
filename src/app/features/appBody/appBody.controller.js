@@ -22,7 +22,8 @@ class AppBodyController {
 		this.AppBodyService
 		.fetchAPI(this.query)
 		.then((resp) => {
-
+			this.musicTabs = resp;
+			console.log(resp);
 		}).catch((err) => err);
 	}
 }

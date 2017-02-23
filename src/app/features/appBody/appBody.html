@@ -1,5 +1,10 @@
-<div class="app-body">
+<div class="app-body" flex="none" flex-gt-xs layout="column">
+	<md-card layout="column" flex>
+	<md-card-content layout="column" flex>
 	<form name="$ctrl.searchForm" ng-submit="$ctrl.fetchAPI()" autocomplete="off">
 	<search-bar query="$ctrl.query" search-initiate="$ctrl.fetchAPI()"></search-bar>
 	</form>
+	<app-content-display music-tabs="$ctrl.musicTabs" layout="column" flex></app-content-display>
+	</md-card-content>
+	</md-card>
 </div>

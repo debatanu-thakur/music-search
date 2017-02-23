@@ -3,6 +3,14 @@ import Artist from './Artist';
  * Initialize album data
  */
 class AlbumResult {
+    /**
+     * Model for the Album data
+     * @param {string} id
+     * @param {*} [genres]
+     * @param {string} name
+     * @param {*} [artists]
+     * @param {*} [images]
+     */
     constructor({
         id,
         genres,
@@ -19,4 +27,4 @@ class AlbumResult {
     }
 };
 
-export default ArtistResult;
+export default AlbumResult;

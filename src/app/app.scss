@@ -6,6 +6,10 @@
     position: relative;
 }
 
+app {
+    height: 100%;
+}
+
 @import 'features/appHeader/appHeader';
 @import 'features/searchBar/searchBar';
 @import 'features/appBody/appBody';
