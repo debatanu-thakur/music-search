@@ -1,11 +1,17 @@
+/**
+ * @name appBody.controller
+ * @description
+ * The entry for the appBody component
+ */
 class AppBodyController {
-	constructor($scope, $element, $attrs, AppBodyService) {
+	/**
+	 * This is initializes the appBody controller
+	 * @param {*} AppBodyService
+	 */
+	constructor(AppBodyService) {
 		'ngInject';
 
 		// refs
-		this.$scope = $scope;
-		this.$element = $element;
-		this.$attrs = $attrs;
 		this.AppBodyService = AppBodyService;
 	}
 
@@ -21,13 +27,13 @@ class AppBodyController {
 					this.fetchAlbum.bind(this) : null;
 			});
 			this.musicTabs = resp;
-			console.log(resp);
 		}).catch((err) => err);
 	}
 
 	/**
 	 * Fetch albums for artists
-	 * @param {*} [artists]
+	 * @param {*} [artist]
+	 * @return {promise}
 	 */
 	fetchAlbum(artist) {
 		return this.AppBodyService

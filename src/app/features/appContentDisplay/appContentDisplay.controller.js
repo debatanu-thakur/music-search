@@ -1,27 +1,14 @@
+/**
+ * @name appContentDisplay.controller
+ * @description
+ * This is the controller for the appContentDisplay component
+ */
 class AppContentDisplayController {
-	constructor($scope, $element, $attrs) {
+	/**
+	 * Initializes the appContentDisplay component
+	 */
+	constructor() {
 		'ngInject';
-
-		// refs
-		this.$scope = $scope;
-		this.$element = $element;
-		this.$attrs = $attrs;
-	}
-
-	$onInit() {
-
-	}
-
-	$postLink() {
-
-	}
-
-	$onChanges() {
-
-	}
-
-	$onDestroy() {
-
 	}
 }
 

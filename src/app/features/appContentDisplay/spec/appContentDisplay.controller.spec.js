@@ -5,8 +5,6 @@ describe('Controller: AppContentDisplayController', function() {
 	beforeEach(angular.mock.module(module.name));
 
 	beforeEach(angular.mock.module(function($provide) {
-		$provide.service('AppContentDisplayService', function() {
-		});
 	}));
 
 	beforeEach(inject(function($rootScope, $componentController) {
@@ -15,9 +13,6 @@ describe('Controller: AppContentDisplayController', function() {
 		this.ctrl = $componentController('appContentDisplay',
 			{
 				// locals
-				$scope: this.$scope,
-				$element: [{}],
-				$attrs: []
 			},
 			{
 				// scope bindings

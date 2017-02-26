@@ -26,7 +26,7 @@ class BackendService {
     }) {
         const method = 'get';
 
-        return this.service({url, method, data: null, params, headers});
+        return this.serviceRequest({url, method, data: null, params, headers});
     }
 
     /**
@@ -45,7 +45,7 @@ class BackendService {
     }) {
         const method = 'post';
 
-        return this.service({url, method, data, params, headers});
+        return this.serviceRequest({url, method, data, params, headers});
     }
 
     /**
@@ -57,7 +57,7 @@ class BackendService {
      * @param {*} [headers]
      * @return {promise}
      */
-    service({
+    serviceRequest({
         url,
         method,
         data,

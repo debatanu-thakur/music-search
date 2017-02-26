@@ -1,3 +1,4 @@
+import $ from 'jquery';
 /**
  * @name searchBar.controller
  * @description
