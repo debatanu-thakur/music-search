@@ -58,17 +58,17 @@ module.exports = function(config) {
             check: {
 
                 global: {
-                statements: 90,
-                branches: 90,
-                functions: 90,
-                lines: 90,
+                statements: 95,
+                branches: 95,
+                functions: 95,
+                lines: 95,
                 },
             },
               watermarks: {
-                statements: [80, 100],
-                functions: [80, 100],
-                branches: [80, 100],
-                lines: [80, 100],
+                statements: [80, 95],
+                functions: [80, 95],
+                branches: [80, 95],
+                lines: [80, 95],
             },
         },
         // web server port

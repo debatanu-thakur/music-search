@@ -18,7 +18,7 @@ class ArtistResult {
         name,
         albums,
         popularity,
-    }) {
+    } = {}) {
         this.id = id;
         this.genres = genres;
         this.images = images;

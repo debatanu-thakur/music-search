@@ -31,7 +31,6 @@ class AppBodyService {
 		}).then((response) => {
 			const data = response.data;
 
-			console.log('resp', response);
 			return [
 				{
 					name: 'Artists',
@@ -71,7 +70,9 @@ class AppBodyService {
 	}
 
 	/**
-	 * 
+	 * This fetches the album for the artists
+	 * @param {string} id
+	 * @return {promise}
 	 */
 	fetchAlbum(id) {
 		return this.BackendService.getMethod({
@@ -82,7 +83,6 @@ class AppBodyService {
 			},
 		})
 		.then((response) => {
-			console.log(response, 'saare albums');
 			return response.data.items.map((album) => new Album(album));
 		});
 	}

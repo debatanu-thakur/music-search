@@ -10,6 +10,7 @@ class AlbumResult {
      * @param {string} name
      * @param {*} [artists]
      * @param {*} [images]
+     * @param {array} [available_markets]
      */
     constructor({
         id,
@@ -18,7 +19,7 @@ class AlbumResult {
         name,
         artists,
         available_markets,
-    }) {
+    } = {}) {
         this.id = id;
         this.genres = genres;
         this.images = images;

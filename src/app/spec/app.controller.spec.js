@@ -16,8 +16,6 @@ describe('Controller: AppController', function() {
 			{
 				// locals
 				$scope: this.$scope,
-				$element: [{}],
-				$attrs: []
 			},
 			{
 				// scope bindings
