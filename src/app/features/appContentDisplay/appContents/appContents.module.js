@@ -1,10 +1,11 @@
 import angular from 'angular';
-import service from './appContents.service';
 import component from './appContents.component';
 
+import AlbumList from './albumList/albumList.module';
+
 const appContentsModule = angular.module('appContents', [
+	AlbumList.name,
 ])
-	.service('AppContentsService', service)
 	.component('appContents', component);
 
 export default appContentsModule;

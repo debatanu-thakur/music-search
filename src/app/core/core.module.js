@@ -3,8 +3,10 @@ import 'angular-material';
 import 'angular-animate';
 import 'angular-messages';
 import 'angular-translate';
+import 'angular-jk-rating-stars';
 
-import config from './core.config';
+
+
 import backendService from './backendService/backendService.module';
 /**
  * @name app.core
@@ -18,9 +20,9 @@ const coreModule = angular.module('app.core', [
 	'ngMaterial',
 	'ngMessages',
 	'pascalprecht.translate',
+	'jkAngularRatingStars',
 
 	backendService.name,
-])
-    .config(config);
+]);
 
 export default coreModule;

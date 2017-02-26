@@ -22,17 +22,12 @@ if (window) {
  * which is bootstraped to the HTML DOM
  */
 function startApp() {
-	const language = 'en';
-
-	loadTranslation(language)
-		.then(loadApp.bind(null, language));
+	loadApp();
 }
 
 function loadApp(language, translation) {
 		angular
-		.module('app.core')
-		.constant('LANGUAGE', language)
-		.constant('TRANSLATION', translation);
+		.module('app.core');
 
     /**
      * NOTE: (petecorreia)

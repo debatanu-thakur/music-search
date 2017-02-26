@@ -17,11 +17,13 @@ class ArtistResult {
         images, // this is for better to have
         name,
         albums,
+        popularity,
     }) {
         this.id = id;
         this.genres = genres;
         this.images = images;
         this.name = name;
+        this.popularity = popularity;
         this.albums = !albums ? [] :
             albums.map((album) => new Album(album));
     }

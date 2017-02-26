@@ -17,11 +17,13 @@ class AlbumResult {
         images, // this is for better to have
         name,
         artists,
+        available_markets,
     }) {
         this.id = id;
         this.genres = genres;
         this.images = images;
         this.name = name;
+        this.markets = available_markets;// eslint-disable-line
         this.artists = !artists ? [] :
             artists.map((album) => new Artist(album));
     }

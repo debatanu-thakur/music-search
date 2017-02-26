@@ -69,6 +69,23 @@ class AppBodyService {
 			params,
 		});
 	}
+
+	/**
+	 * 
+	 */
+	fetchAlbum(id) {
+		return this.BackendService.getMethod({
+			url: `${this.SEARCHAPI.SEARCH_ALBUMS_URL}/${id}/albums`,
+			params: {
+				album_type: 'album,single',
+				market: 'US',
+			},
+		})
+		.then((response) => {
+			console.log(response, 'saare albums');
+			return response.data.items.map((album) => new Album(album));
+		});
+	}
 }
 
 export default AppBodyService;

@@ -24,7 +24,7 @@ const config = {
             'node_modules',
         ],
     },
-    devtool: 'cheap-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
         port: 8700,

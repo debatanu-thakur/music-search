@@ -5,6 +5,7 @@ const API = {
         album: 'album',
         all: 'album,artist',
     },
+    SEARCH_ALBUMS_URL: '//api.spotify.com/v1/artists',
 };
 
 export default API;

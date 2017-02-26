@@ -6,13 +6,11 @@
 class SearchBarController {
 	/**
 	 * Initializes the search bar controller
-	 * @param {*} [SearchBarService]
 	 */
-	constructor(SearchBarService) {
+	constructor() {
 		'ngInject';
 
 		// refs
-		this.SearchBarService = SearchBarService;
 	}
 
 	/**
