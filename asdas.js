@@ -1,19 +1,7 @@
-require('babel-polyfill');
-
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const HappyPack = require('happypack');
-
-const happyThreadCount = 4;
-
 const config = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        app: './bootstrap.js',
+        app: './app/bootstrap.js', //entry file
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -24,7 +12,7 @@ const config = {
             'node_modules',
         ],
     },
-    devtool: 'eval-source-map',
+    devtool: 'cheap-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
         port: 8700,
@@ -34,7 +22,6 @@ const config = {
         open: true,
     },
     plugins: [
-        new DashboardPlugin(),
         new ExtractTextPlugin({
             filename: '[name].css',
             disable: false,
@@ -44,7 +31,6 @@ const config = {
             filename: 'index.html',
             template: 'index.html',
         }),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function(mod, count) {
@@ -59,45 +45,12 @@ const config = {
 			'jQuery': 'jquery',
             'window.jQuery': 'jquery',
 		}),
-        new HappyPack({
-            id: 'eslint',
-            loaders: [
-                {loader: 'eslint-loader'},
-                ],
-            threads: happyThreadCount,
-        }),
-        new HappyPack({
-            id: 'babel',
-            loaders: [
-                {loader: 'babel-loader', options: {presets: ['es2015']},
-            },
-                ],
-            threads: happyThreadCount,
-        }),
-        new CopyWebpackPlugin([
-            {from: 'assets', to: 'assets'},
-        ]),
     ],
     module: {
         rules: [
             {
-                test: /\.json$/,
-                loader: 'json-loader',
-            },
-            {
                 test: /\.html$/,
                 loader: 'html-loader',
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                enforce: 'pre',
-                use: [{loader: 'happypack/loader?id=eslint'}],
-            },
-            {
-                test: /\.js/,
-                exclude: /node_modules/,
-                use: [{loader: 'happypack/loader?id=babel'}],
             },
             {
                 test: /\.scss$/,
@@ -135,5 +88,3 @@ const config = {
         ],
     },
 };
-
-module.exports = config;

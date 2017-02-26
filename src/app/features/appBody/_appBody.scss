@@ -1,0 +1,12 @@
+.app-body {
+    overflow: hidden;
+    position: relative;
+    min-height: 100%;
+}
+
+app-body {
+    height: 90%;
+}
+
+@import '../searchBar/searchBar';
+@import '../appContentDisplay/appContentDisplay';

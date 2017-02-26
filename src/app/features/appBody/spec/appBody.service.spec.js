@@ -1,7 +1,7 @@
 import angular from 'angular';
-import module from '../appHeader.module';
+import module from '../appBody.module';
 
-describe('Service: AppHeaderService', function() {
+describe('Service: AppBodyService', function() {
 	beforeEach(angular.mock.module(module.name));
 
 	// Providers
@@ -9,8 +9,8 @@ describe('Service: AppHeaderService', function() {
 	}));
 
 	// Injections
-	beforeEach(inject(function($injector, AppHeaderService) {
-		this.service = AppHeaderService;
+	beforeEach(inject(function($injector, AppBodyService) {
+		this.service = AppBodyService;
 	}));
 
 	it('should be defined', function() {

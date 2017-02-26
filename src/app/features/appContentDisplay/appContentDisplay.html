@@ -1,0 +1,9 @@
+<div class="app-content-display" layout="column"> 
+	<md-content layout="column" ng-if="$ctrl.musicTabs">
+	<md-tabs md-selected="$ctrl.selectedTabIndex" layout="column" flex class="app-content-display__tabs" layout="column" md-dynamic-height md-swipe-content>
+		<md-tab ng-repeat="tab in $ctrl.musicTabs" label="{{tab.name}}" ng-click="$ctrl.toggleTabs(tab)" layout="column" flex>
+			<app-contents tab-content="tab" get-more-details="tab.getMoreDetails(value)" layout="column" flex></app-contents>
+		</md-tab>
+	</md-tabs>
+	</md-content>
+</div>

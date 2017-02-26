@@ -23,22 +23,6 @@ class AppController {
 		this.$attrs = $attrs;
 		this.AppService = AppService;
 	}
-
-	$onInit() {
-
-	}
-
-	$postLink() {
-
-	}
-
-	$onChanges() {
-
-	}
-
-	$onDestroy() {
-
-	}
 }
 
 export default AppController;
