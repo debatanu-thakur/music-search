@@ -1,0 +1,15 @@
+<div class="album-list" layout="column">
+	<h1>{{ $ctrl.name }}</h1>
+	<md-content flex>
+	<md-list flex>
+		<md-list-item class="md-3-line" ng-repeat="album in $ctrl.albums" ng-click="null">
+          <img ng-src="{{$ctrl.fetchImage(album)}}" class="md-avatar" alt="{{album.name}}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ album.name }}</h3>
+			<p>{{ (album.markets && album.markets.join(', ')) }}</p>
+          </div>
+        </md-list-item>
+	</md-list>
+	<p ng-if="!$ctrl.albums.length"> No Albums Found</p>
+	</md-content>
+</div>

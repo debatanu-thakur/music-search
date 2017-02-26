@@ -1,0 +1,13 @@
+.app-contents {
+    overflow: auto;
+
+    &--text-capital {
+        text-transform: capitalize;
+    }
+
+    .artist-popularity .button .material-icons {
+        font-size: 1.1em;
+    }
+}
+
+@import 'albumList/albumList';

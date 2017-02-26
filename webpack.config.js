@@ -1,6 +1,7 @@
 require('babel-polyfill');
 
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,7 +13,7 @@ const happyThreadCount = 4;
 const config = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        app: './app/bootstrap.js',
+        app: './bootstrap.js',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -23,7 +24,7 @@ const config = {
             'node_modules',
         ],
     },
-    devtool: 'cheap-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
         port: 8700,
@@ -73,9 +74,16 @@ const config = {
                 ],
             threads: happyThreadCount,
         }),
+        new CopyWebpackPlugin([
+            {from: 'assets', to: 'assets'},
+        ]),
     ],
     module: {
         rules: [
+            {
+                test: /\.json$/,
+                loader: 'json-loader',
+            },
             {
                 test: /\.html$/,
                 loader: 'html-loader',

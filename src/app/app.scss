@@ -1,9 +1,16 @@
+@import 'variables';
 @import '../../node_modules/angular-material/modules/scss/angular-material';
-
+@import '../../node_modules/angular-jk-rating-stars/src/assets/styles/jk-rating-stars.scss';
 
 .app {
     position: relative;
 }
 
+app {
+    height: 100%;
+}
+
 @import 'features/appHeader/appHeader';
+@import 'features/searchBar/searchBar';
+@import 'features/appBody/appBody';
 

@@ -3,3 +3,4 @@ node_modules
 dist/
 .happypack
 npm-debug.log
+test/coverage

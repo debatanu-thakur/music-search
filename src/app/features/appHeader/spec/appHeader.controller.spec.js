@@ -5,8 +5,6 @@ describe('Controller: AppHeaderController', function() {
 	beforeEach(angular.mock.module(module.name));
 
 	beforeEach(angular.mock.module(function($provide) {
-		$provide.service('AppHeaderService', function() {
-		});
 	}));
 
 	beforeEach(inject(function($rootScope, $componentController) {
@@ -17,7 +15,7 @@ describe('Controller: AppHeaderController', function() {
 				// locals
 				$scope: this.$scope,
 				$element: [{}],
-				$attrs: []
+				$attrs: [],
 			},
 			{
 				// scope bindings
