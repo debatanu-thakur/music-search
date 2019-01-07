@@ -4,3 +4,4 @@ dist/
 .happypack
 npm-debug.log
 test/coverage
+yarn-error.log
